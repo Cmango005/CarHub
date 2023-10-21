@@ -14,7 +14,7 @@ const Home = () => {
             <section>
                 <div className="grid grid-cols-3 gap-5">
                 {
-                    brands.map(brand => <Link key={brand.id}>
+                    brands.map(brand => <Link to="/products" key={brand.id}>
                     <div  className="card w-96 bg-base-100 shadow-2xl">
                      <figure><img className="h-56 w-full" src={brand.img} alt="" /></figure>
                      <div className="card-body"><p className="text-center font-bold text-xl">{brand.name}</p></div>
