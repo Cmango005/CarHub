@@ -9,6 +9,8 @@ import {
 import Root from './assets/Components/Root/Root';
 import Home from './assets/Components/Home/Home';
 import AddProducts from './assets/Components/AddProducts/AddProducts';
+import Products from './assets/Components/Products/Products';
+import Details from './assets/Components/Details/Details';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +25,18 @@ const router = createBrowserRouter([
         path:"/add-product",
         element:<AddProducts></AddProducts>
       },
+      {
+        path:'/products/:brand',
+        element:<Products></Products>,
+        loader: ()=> fetch('http://localhost:5000/products')
+
+      },
+      {
+        path:'/detail/:_id',
+        element:<Details></Details>,
+        loader: ()=> fetch('http://localhost:5000/products')
+
+      }
       
     ]
   },

@@ -44,7 +44,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end hidden lg:flex">
+      <div className="navbar-end lg:flex">
         <label onChange={toggleTheme} className="swap swap-rotate">
 
           {/* this hidden checkbox controls the state */}
