@@ -10,8 +10,8 @@ const Navbar = () => {
     document.querySelector("body").setAttribute('data-theme', 'light')
   }
   const toggleTheme = e => {
-    if (e.target.checked) setDark();
-    else setLight();
+    if (e.target.checked) setLight();
+    else setDark();
   }
   return (
     <div className="navbar shadow-2xl bg-base-100 mx-auto container">

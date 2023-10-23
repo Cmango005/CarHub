@@ -89,10 +89,10 @@ const AddProducts = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className='text-white'>Short Description:</label>
-                                    <textarea
+                                    <input
                                         type="text"
                                         name="description"
-                                        placeholder="Text" className="rounded-lg h-56 w-56"
+                                        placeholder="Text" className="input input-bordered"
                                     />
                                 </div>
 
@@ -104,7 +104,7 @@ const AddProducts = () => {
                             <label className='text-white'>Rating:</label>
                             <input
                                 type="text"
-                                name="name"
+                                name="rating"
                                 placeholder="Rating 0/10" className="input input-bordered"
                             />
                         </div>

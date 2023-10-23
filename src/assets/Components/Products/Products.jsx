@@ -1,5 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { GrDocumentUpdate } from 'react-icons/gr';
+import { AiFillStar } from 'react-icons/ai';
+import {GrDocumentUpdate} from 'react-icons/gr';
 
 const Products = () => {
     const allProducts = useLoaderData([]);
@@ -8,7 +9,7 @@ const Products = () => {
     if (newProduct.length==0){
     
          return <div>
-            <p className="text-center text-lg font-extrabold p-10">Products are not available</p>
+            <p className="text-center text-lg font-extrabold p-10">Products Are Not available</p>
          
          </div>
     }
@@ -24,10 +25,13 @@ const Products = () => {
                         <p>Name:{item.name}</p>
                         <p>Brand:{item.brand}</p>
                         <p>Price:{item.price}$</p>
-                        <p>Rating:{item.rating}</p>
+                        <div className="flex items-center">
+                        <p>Rating: {item.rating}</p>
+                        <p><AiFillStar></AiFillStar></p>
+                        </div>
                         <div className=" flex gap-2">
-                            <div><Link to={`/detail/${item._id}`}><button className="btn btn-sm">Details</button></Link></div>
-                            <div><button type="submit" className="btn btn-sm"><GrDocumentUpdate></GrDocumentUpdate></button></div>
+                            <div><Link to={`/detail/${item._id}`}><button className="btn btn-sm tooltip" data-tip="Details">Details</button></Link></div>
+                            <div><Link to={`/update/${item._id}`}><button type="submit" className="btn btn-sm tooltip" data-tip="Update"><GrDocumentUpdate></GrDocumentUpdate></button></Link></div>
                         </div>
                        
                     </div>
