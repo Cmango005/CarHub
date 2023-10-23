@@ -1,5 +1,5 @@
 
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
 
@@ -21,7 +21,7 @@ const Details = () => {
                 </div>
             </div>
             <div>
-                <button className="btn btn-outline btn-error">Add To Cart</button>
+                <Link to={`/cart/${detail._id}`}><button className="btn btn-outline btn-error">Add To Cart</button></Link>
             </div>
         </div>
 

@@ -12,6 +12,10 @@ import AddProducts from './assets/Components/AddProducts/AddProducts';
 import Products from './assets/Components/Products/Products';
 import Details from './assets/Components/Details/Details';
 import Update from './assets/Components/Update/Update';
+import Login from './assets/Components/Login/Login';
+import Registration from './assets/Components/Registration/Registration';
+import AuthProvider from './providers/AuthProvider';
+import PrivateRoute from './assets/Components/Route/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,14 +38,23 @@ const router = createBrowserRouter([
       },
       {
         path:'/detail/:_id',
-        element:<Details></Details>,
+        element:<PrivateRoute><Details></Details></PrivateRoute>,
         loader: ()=> fetch('http://localhost:5000/products')
 
       },
       {
         path:"/update/:id",
-        element:<Update></Update>,
+        element:<PrivateRoute><Update></Update></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+
+      },
+      {
+        path:'/registration',
+        element:<Registration></Registration>
       }
       
     ]
@@ -49,6 +62,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

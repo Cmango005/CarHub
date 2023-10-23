@@ -1,8 +1,15 @@
-import { } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const handleSignOut = () => {
+    logOut()
+      .then()
+      .catch()
+  }
   const setDark = () => {
     document.querySelector("body").setAttribute('data-theme', 'dark')
   }
@@ -25,7 +32,7 @@ const Navbar = () => {
               <NavLink to="/"><h3>Home</h3></NavLink> <br />
               <NavLink to="/add-product">Add Product</NavLink>
               <NavLink to="/cart">My Cart</NavLink>
-              
+
 
             </nav>
           </ul>
@@ -38,13 +45,11 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/add-product">Add Product</NavLink>
             <NavLink to="/cart">My Cart</NavLink>
-            
+
 
           </nav>
         </ul>
-      </div>
-
-      <div className="navbar-end lg:flex">
+        <div >
         <label onChange={toggleTheme} className="swap swap-rotate">
 
           {/* this hidden checkbox controls the state */}
@@ -60,6 +65,26 @@ const Navbar = () => {
         </label>
 
       </div>
+      </div>
+
+      
+      {
+        user ?
+          <div className="navbar-end flex">
+
+            <div className="flex items-center flex-row-reverse">
+              <h3 className="">{user.displayName}</h3>
+              <img className="w-16 rounded-full border-2" src={user.photoURL} alt="" />
+            </div>
+
+            <button onClick={handleSignOut} className="btn btn-active btn-neutral hover:bg-orange-500 hover:text-white">LogOut</button>
+          </div>
+          :
+          <div className="navbar-end flex">
+
+            <Link to='/login'><button className="btn btn-active btn-neutral hover:bg-orange-500 hover:text-white">LogIn</button></Link>
+          </div>
+      }
 
 
 
