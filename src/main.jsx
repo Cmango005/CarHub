@@ -16,6 +16,8 @@ import Login from './assets/Components/Login/Login';
 import Registration from './assets/Components/Registration/Registration';
 import AuthProvider from './providers/AuthProvider';
 import PrivateRoute from './assets/Components/Route/PrivateRoute';
+import AddToCart from './assets/Components/Cart/AddToCart';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,7 +57,13 @@ const router = createBrowserRouter([
       {
         path:'/registration',
         element:<Registration></Registration>
+      },
+      {
+        path:'/cart',
+        element:<AddToCart></AddToCart>,
+        loader: ()=>fetch('http://localhost:5000/user')
       }
+     
       
     ]
   },
