@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from "firebase/auth";
@@ -10,6 +10,7 @@ const Login = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  const users = useLoaderData();
   const handleLogin = e => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -33,7 +34,24 @@ const Login = () => {
       .then(Result => {
         toast('sign in with google successful')
         console.log(Result);
+        const email = Result.user.email;
+        const newUser ={email};
+        const user =users.find(ue=>ue.email == newUser.email)
+      
+        if(!user){
+          fetch("http://localhost:5000/user",{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(newUser)
+        })
+        .then(res => res.json)
+        .then(data => {
+          console.log(data)
+        })
 
+        }
         navigate(location?.state ? location.state : "/")
 
       })
@@ -69,7 +87,7 @@ const Login = () => {
           </form>
 
           <div className="text-center">
-            <p className="ml-2">Have Not Account? Register Now<NavLink to='/register'><button className="btn btn-link">Registration</button></NavLink></p>
+            <p className="ml-2">Have Not Account? Register Now<NavLink to='/registration'><button className="btn btn-link">Registration</button></NavLink></p>
             <p className="text-center mb-2">OR</p>
             <button onClick={handleSignInGoogle} className="btn btn-accent text-white mb-3 ">SignUp With <FcGoogle></FcGoogle></button>
             <ToastContainer />

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
+
 const Registration = () => {
   const [errMessage, setErrMessage] = useState('')
   const { createUser } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Registration = () => {
     const email = form.get('email');
     const password = form.get('password');
     setErrMessage('')
+    
     if (password.length < 6) {
       setErrMessage('password cannot be less then 6 character')
       return
@@ -27,6 +29,19 @@ const Registration = () => {
     createUser(email, password)
       .then(result => {
         console.log(result.user)
+        const user ={email};
+        fetch("http://localhost:5000/user",{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json)
+        .then(data => {
+          console.log(data)
+          
+        })
       })
       .catch(error => {
         console.log(error)

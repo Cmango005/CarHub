@@ -37,7 +37,7 @@ const Navbar = () => {
             </nav>
           </ul>
         </div>
-        <img className="h-14 w-32 rounded-xl shadow-2xl" src="https://i.ibb.co/zsN3wKQ/images.png" alt="" />
+        <img className="h-14 w-32  shadow-2xl" src="https://i.ibb.co/zsN3wKQ/images.png" alt="" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -74,7 +74,7 @@ const Navbar = () => {
 
             <div className="flex items-center flex-row-reverse">
               <h3 className="">{user.displayName}</h3>
-              <img className="w-16 rounded-full border-2" src={user.photoURL} alt="" />
+              <img className="w-12 rounded-full border-2" src={user.photoURL} alt="" />
             </div>
 
             <button onClick={handleSignOut} className="btn btn-active btn-neutral hover:bg-orange-500 hover:text-white">LogOut</button>
