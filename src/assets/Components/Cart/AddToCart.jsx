@@ -29,7 +29,7 @@ const AddToCart = () => {
         
         const updatedUser = { updatedCart }
         
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

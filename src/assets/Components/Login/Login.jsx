@@ -39,7 +39,7 @@ const Login = () => {
         const user =users.find(ue=>ue.email == newUser.email)
       
         if(!user){
-          fetch("http://localhost:5000/user",{
+          fetch("  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user",{
           method:"POST",
           headers:{
             'content-type':'application/json'

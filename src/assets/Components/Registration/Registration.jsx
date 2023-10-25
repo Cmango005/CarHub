@@ -30,7 +30,7 @@ const Registration = () => {
       .then(result => {
         console.log(result.user)
         const user ={email};
-        fetch("http://localhost:5000/user",{
+        fetch("  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user",{
           method:"POST",
           headers:{
             'content-type':'application/json'

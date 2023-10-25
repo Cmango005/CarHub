@@ -16,7 +16,7 @@ const Update = () => {
         const type = form.type.value;
         const rating = form.rating.value;
         const updatedProduct ={photo,name,brand,price,description,type,rating}
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const Details = () => {
     const [mongoUser, setMongoUsers] = useState()
     const [CartProduct, setCartProduct] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user')
             .then(res => res.json())
             .then(data => {
                 const mongoUser = data.find(u => u.email == user?.email)
@@ -37,7 +37,7 @@ const Details = () => {
             Cart: updatedCart
         };
 
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

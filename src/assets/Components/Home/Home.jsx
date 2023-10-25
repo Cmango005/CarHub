@@ -7,7 +7,7 @@ AOS.init();
 const Home = () => {
     const [brands, setBrands] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/")
+        fetch("  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/")
             .then(res => res.json())
             .then(data => setBrands(data));
     }, [brands])

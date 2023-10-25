@@ -35,24 +35,24 @@ const router = createBrowserRouter([
       {
         path:'/products/:brand',
         element:<Products></Products>,
-        loader: ()=> fetch('http://localhost:5000/products')
+        loader: ()=> fetch('  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/products')
 
       },
       {
         path:'/detail/:_id',
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5000/products')
+        loader: ()=> fetch('  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/products')
 
       },
       {
         path:"/update/:id",
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params})=> fetch(`  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/products/${params.id}`)
       },
       {
         path:'/login',
         element:<Login></Login>,
-        loader: ()=> fetch("http://localhost:5000/user"),
+        loader: ()=> fetch("  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user"),
       },
       {
         path:'/registration',
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path:'/cart',
         element:<AddToCart></AddToCart>,
-        loader: ()=>fetch('http://localhost:5000/user')
+        loader: ()=>fetch('  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/user')
       }
      
       

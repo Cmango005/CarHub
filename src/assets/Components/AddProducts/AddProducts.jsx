@@ -15,7 +15,7 @@ const AddProducts = () => {
 
         const newProduct = { photo, name, brand, price, description, type, rating }
         console.log(newProduct)
-        fetch("http://localhost:5000/products", {
+        fetch("  https://brand-assignment-server-mmwzcddhs-cmango005.vercel.app/products", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
