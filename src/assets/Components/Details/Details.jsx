@@ -19,8 +19,9 @@ const Details = () => {
             .then(res => res.json())
             .then(data => {
                 const mongoUser = data.find(u => u.email == user?.email)
-                console.log(mongoUser);
+                console.log(data)
                 setMongoUsers(mongoUser);
+                console.log(mongoUser);
             })
 
     }, [user])
@@ -30,13 +31,13 @@ const Details = () => {
         }
 
     }, [mongoUser, CartProduct]);
-    const handleCart = () => {
+    const handleCart = (id) => {
         const updatedCart = [...CartProduct, detail];
         const newUser = {
             Cart: updatedCart
         };
 
-        fetch(`http://localhost:5000/user/${mongoUser._id}`, {
+        fetch(`http://localhost:5000/user/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +65,7 @@ const Details = () => {
                 </div>
             </div>
             <div>
-                <button onClick={handleCart} className="btn btn-outline btn-error">Add To Cart</button>
+                <button onClick={()=>handleCart(mongoUser._id)} className="btn btn-outline btn-error">Add To Cart</button>
                 <ToastContainer />
             </div>
         </div>
