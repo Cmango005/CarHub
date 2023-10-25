@@ -48,12 +48,12 @@ const AddToCart = () => {
         <div>
 
             {
-                cart.map(product => <div key={product._id} className="flex">
-                    <figure><img src={product.photo} alt="" /></figure>
-                    <div><p>Name:{product.name}</p>
+                cart.map(product => <div key={product._id} className="card card-side bg-base-100 shadow-xl">
+                    <figure><img className="w-96" src={product.photo} alt="" /></figure>
+                    <div className="card-body"><p>Name:{product.name}</p>
                     <p>Brand:{product.brand}</p>
                     <p>Price:{product.price}</p>
-                    <button onClick={() => handleDelete(mongoUser._id,product)} className="btn btn-outline btn-error">Delete</button></div>
+                    <button onClick={() => handleDelete(mongoUser._id,product)} className="btn w-20 btn-outline btn-error">Delete</button></div>
                     <ToastContainer />
                 </div>)
             }

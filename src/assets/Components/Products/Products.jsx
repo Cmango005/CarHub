@@ -1,7 +1,10 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AiFillStar } from 'react-icons/ai';
 import {GrDocumentUpdate} from 'react-icons/gr';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
 const Products = () => {
     const allProducts = useLoaderData([]);
     const { brand } = useParams();
@@ -14,7 +17,29 @@ const Products = () => {
          </div>
     }
     return (
-        <div className="grid grid-cols-2 gap-5 p-5 mx-auto container">
+       <div className="mx-auto container">
+       
+        <div >
+            <p className="text-center font-extrabold text-4xl">Slide To See Our Latest Collection</p>
+        <Swiper
+        
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      
+        {
+            newProduct.map(item=> <div  key={item._id}>
+                <SwiperSlide ><img className="lg:w-2/3 lg:ml-48 " src={item.photo} alt="" /></SwiperSlide>
+            </div>)
+        }
+      
+      
+    </Swiper>
+        </div>
+        <p className="text-center font-extrabold text-4xl">OUR LATEST PRODUCTS</p>
+         <div className="grid grid-cols-2 gap-5 p-5 mx-auto container">
             
 
             { 
@@ -41,6 +66,8 @@ const Products = () => {
             }
 
         </div>
+       </div>
+
     );
 };
 

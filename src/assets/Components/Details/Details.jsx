@@ -54,7 +54,7 @@ const Details = () => {
     };
     return (
 
-        <div className="flex flex-col justify-center items-center p-6">
+        <div className="flex flex-col justify-center items-center p-6 mx-auto container">
             <div className="flex  justify-center items-center p-6 gap-4" >
                 <div className="w-5/12 "><img className="rounded-2xl " src={detail.photo} alt="" /></div>
                 <div className=" w-6/12 space-y-3">
